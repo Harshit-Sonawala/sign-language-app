@@ -6,11 +6,40 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const optionsList = <Map>[];
+    const optionsList = <Map>[
+      {
+        'optionId': 1,
+        'optionTitle': 'Translate Sign Language',
+        'optionIcon': Icons.translate_rounded,
+        'optionColor': Colors.red,
+        'optionNavigate': 'navigate',
+      },
+      {
+        'optionId': 2,
+        'optionTitle': 'Recognise Text (OCR)',
+        'optionIcon': Icons.center_focus_strong_rounded,
+        'optionColor': Colors.blue,
+        'optionNavigate': 'navigate',
+      },
+      {
+        'optionId': 3,
+        'optionTitle': 'Read Text Out Loud',
+        'optionIcon': Icons.record_voice_over,
+        'optionColor': Colors.green,
+        'optionNavigate': 'navigate',
+      },
+      {
+        'optionId': 4,
+        'optionTitle': 'ASL Guide',
+        'optionIcon': Icons.my_library_books,
+        'optionColor': Colors.deepPurple,
+        'optionNavigate': 'navigate',
+      },
+    ];
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Sign Language Translator'),
-      // ),
+      appBar: AppBar(
+        title: const Text('Sign Language Translator'),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -22,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                 Text(
                   'Welcome, User!',
                   style: TextStyle(
-                    color: Colors.cyan,
+                    color: Colors.deepPurple,
                     fontSize: 30.0,
                   ),
                 ),
@@ -47,11 +76,13 @@ class HomeScreen extends StatelessWidget {
                     mainAxisSpacing: 10.0,
                     crossAxisSpacing: 10.0,
                   ),
-                  itemCount: 4,
+                  itemCount: optionsList.length,
                   itemBuilder: (BuildContext context, int index) {
                     return MainOptionButton(
-                      passedTitle: 'Option $index',
-                    );
+                        passedTitle: optionsList[index]['optionTitle'],
+                        passedIcon: optionsList[index]['optionIcon'],
+                        passedColor: optionsList[index]['optionColor'],
+                        passedNavigate: optionsList[index]['optionNavigate']);
                   }),
             ),
           ),
