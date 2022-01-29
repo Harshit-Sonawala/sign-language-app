@@ -1,16 +1,15 @@
-# sign_language_app
+# Sign Language Translator App #  
 
-A new Flutter project.
+An app built with Flutter to detect the Sign Language gestures using the camera and translate them into English and various other languages.  
 
-## Getting Started
+## Planned Features ##  
 
-This project is a starting point for a Flutter application.
+  * Live Translation of Sign Language gestures into various languages.  
+  * Click a photo and recognise text from it.  
+  * Read out previously recognised text or custom input text.  
+  * Simple Guide to ASL within the app.  
 
-A few resources to get you started if this is your first Flutter project:
+Created as a project submission for Semester VI as a part of the B.Tech IT Course at K.J. Somaiya Institute of Engineering and Information Technology, Sion, Mumbai.  
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+-- ! Work in Progess ! --  
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
