@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import './reusableWidgets/MainOptionButton.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -37,54 +38,103 @@ class HomeScreen extends StatelessWidget {
       },
     ];
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sign Language Translator'),
+      drawer: MediaQuery.removePadding(
+        context: context,
+        // removeTop: true,
+        child: Drawer(
+          child: Column(
+            children: [
+              DrawerHeader(
+                decoration:
+                    BoxDecoration(color: Theme.of(context).primaryColor),
+                child: const Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Text('Sign Language Translator',
+                        style: TextStyle(color: Colors.white, fontSize: 20))),
+              ),
+              ListTile(
+                onTap: () => {},
+                title: const Text('Home'),
+              ),
+              ListTile(
+                onTap: () => {},
+                title: const Text('Settings'),
+              ),
+              ListTile(
+                onTap: () => {},
+                title: const Text('About'),
+              ),
+            ],
+          ),
+        ),
       ),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Sign Language Translator'),
+        backgroundColor: Colors.white,
+        foregroundColor: Theme.of(context).primaryColor,
+        elevation: 3.0,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+          statusBarBrightness: Brightness.dark, // For iOS (dark icons)
+        ),
+      ),
+      backgroundColor: const Color(0xFFF4F4F4),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Welcome, User!',
-                  style: TextStyle(
-                    color: Colors.deepPurple,
-                    fontSize: 30.0,
-                  ),
+          FractionallySizedBox(
+            widthFactor: 1, // 100% width
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              margin:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              elevation: 3.0,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Welcome, User!',
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Text(
+                      'Choose your action:',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Text(
-                  'Choose your action:',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10.0,
-                    crossAxisSpacing: 10.0,
-                  ),
-                  itemCount: optionsList.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return MainOptionButton(
-                        passedTitle: optionsList[index]['optionTitle'],
-                        passedIcon: optionsList[index]['optionIcon'],
-                        passedColor: optionsList[index]['optionColor'],
-                        passedNavigate: optionsList[index]['optionNavigate']);
-                  }),
-            ),
+            child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  // mainAxisSpacing: 2.0,
+                  // crossAxisSpacing: 2.0,
+                ),
+                itemCount: optionsList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return MainOptionButton(
+                      passedTitle: optionsList[index]['optionTitle'],
+                      passedIcon: optionsList[index]['optionIcon'],
+                      passedColor: optionsList[index]['optionColor'],
+                      passedNavigate: optionsList[index]['optionNavigate']);
+                }),
           ),
         ],
       ),

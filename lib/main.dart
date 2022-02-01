@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sign Language Translator',
       theme: ThemeData(
-        primarySwatch: Colors.cyan,
+        primarySwatch: Colors.deepPurple,
       ),
       home: const HomeScreen(),
       debugShowCheckedModeBanner: false,

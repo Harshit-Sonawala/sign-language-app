@@ -21,30 +21,36 @@ class MainOptionButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
       ),
       elevation: 3.0,
+      margin: const EdgeInsets.all(10),
       color: passedColor,
       child: InkWell(
         onTap: () => {},
-        child: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              passedIcon,
-              color: Colors.white,
-              size: 40,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              passedTitle,
-              style: const TextStyle(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                passedIcon,
                 color: Colors.white,
-                fontSize: 14.0,
+                size: 40,
               ),
-            ),
-          ],
-        )),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                passedTitle,
+                softWrap: true,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.0,
+                ),
+              ),
+            ],
+          )),
+        ),
       ),
     );
   }
