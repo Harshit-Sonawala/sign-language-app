@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import './reusableWidgets/MainOptionButton.dart';
+import 'reusableWidgets/custom_drawer.dart';
+import 'reusableWidgets/main_option_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -38,36 +39,7 @@ class HomeScreen extends StatelessWidget {
       },
     ];
     return Scaffold(
-      drawer: MediaQuery.removePadding(
-        context: context,
-        // removeTop: true,
-        child: Drawer(
-          child: Column(
-            children: [
-              DrawerHeader(
-                decoration:
-                    BoxDecoration(color: Theme.of(context).primaryColor),
-                child: const Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text('Sign Language Translator',
-                        style: TextStyle(color: Colors.white, fontSize: 20))),
-              ),
-              ListTile(
-                onTap: () => {},
-                title: const Text('Home'),
-              ),
-              ListTile(
-                onTap: () => {},
-                title: const Text('Settings'),
-              ),
-              ListTile(
-                onTap: () => {},
-                title: const Text('About'),
-              ),
-            ],
-          ),
-        ),
-      ),
+      drawer: CustomDrawer(),
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Sign Language Translator'),
@@ -103,7 +75,6 @@ class HomeScreen extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.deepPurple,
                         fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(
@@ -112,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                     Text(
                       'Choose your action:',
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 18.0,
                       ),
                     ),
                   ],

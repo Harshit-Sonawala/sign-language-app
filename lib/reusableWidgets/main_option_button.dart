@@ -45,7 +45,7 @@ class MainOptionButton extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 16.0,
+                  fontSize: 18.0,
                 ),
               ),
             ],

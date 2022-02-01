@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './HomeScreen.dart';
+import 'home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Sign Language Translator',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
+        accentColor: const Color(0xFF00B0FF),
+        fontFamily: 'ProductSans',
       ),
       home: const HomeScreen(),
       debugShowCheckedModeBanner: false,
