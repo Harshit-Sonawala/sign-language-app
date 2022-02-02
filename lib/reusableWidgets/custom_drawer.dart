@@ -23,22 +23,20 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 margin: const EdgeInsets.only(bottom: 10),
                 child: const Align(
                     alignment: Alignment.bottomLeft,
-                    child: Text('Sign Language Translator',
-                        style: TextStyle(color: Colors.white, fontSize: 20))),
+                    child: Text('Sign Language Translator', style: TextStyle(color: Colors.white, fontSize: 20))),
               ),
             ),
-            ListTile(
-              onTap: () => {},
-              leading: Icon(
-                Icons.home,
-                color: Theme.of(context).primaryColor,
-              ),
-              title: Text(
-                'Home',
-                style: TextStyle(
-                    fontSize: 16, color: Theme.of(context).primaryColor),
-              ),
-            ),
+            // ListTile(
+            //   onTap: () => {},
+            //   leading: Icon(
+            //     Icons.home,
+            //     color: Theme.of(context).primaryColor,
+            //   ),
+            //   title: Text(
+            //     'Home',
+            //     style: TextStyle(fontSize: 16, color: Theme.of(context).primaryColor),
+            //   ),
+            // ),
             ListTile(
               onTap: () => {},
               leading: Icon(

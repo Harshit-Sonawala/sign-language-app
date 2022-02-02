@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
+import 'ocr_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,14 +14,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Sign Language Translator',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        accentColor: const Color(0xFF00B0FF),
-        fontFamily: 'ProductSans',
-      ),
-      home: const HomeScreen(),
-      debugShowCheckedModeBanner: false,
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Sign Language Translator',
+        theme: ThemeData(
+          primarySwatch: Colors.deepPurple,
+          accentColor: const Color(0xFF00B0FF),
+          fontFamily: 'ProductSans',
+        ),
+        // home: const HomeScreen(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const HomeScreen(),
+          '/ocr': (context) => const OcrScreen(),
+        });
   }
 }

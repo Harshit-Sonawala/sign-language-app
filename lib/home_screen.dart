@@ -1,57 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
+import 'reusableWidgets/custom_appbar.dart';
 import 'reusableWidgets/custom_drawer.dart';
 import 'reusableWidgets/main_option_button.dart';
+
+import 'ocr_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const optionsList = <Map>[
+    var optionsList = <Map>[
       {
         'optionId': 1,
         'optionTitle': 'Translate Sign Language',
         'optionIcon': Icons.translate_rounded,
         'optionColor': Colors.red,
-        'optionNavigate': 'navigate',
+        'optionNavigate': () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const OcrScreen()),
+              )
+            },
       },
       {
         'optionId': 2,
         'optionTitle': 'Recognise Text (OCR)',
         'optionIcon': Icons.center_focus_strong_rounded,
-        'optionColor': Colors.blue,
-        'optionNavigate': 'navigate',
+        'optionColor': const Color(0xFF00B0FF),
+        'optionNavigate': () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const OcrScreen()),
+              )
+            },
       },
       {
         'optionId': 3,
-        'optionTitle': 'Read Text Out Loud',
+        'optionTitle': 'Read Out Loud',
         'optionIcon': Icons.record_voice_over,
         'optionColor': Colors.green,
-        'optionNavigate': 'navigate',
+        'optionNavigate': () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const OcrScreen()),
+              )
+            },
       },
       {
         'optionId': 4,
         'optionTitle': 'ASL Guide',
         'optionIcon': Icons.my_library_books,
-        'optionColor': Colors.deepPurple,
-        'optionNavigate': 'navigate',
+        'optionColor': Colors.orange,
+        'optionNavigate': () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const OcrScreen()),
+              )
+            },
       },
     ];
+
     return Scaffold(
-      drawer: CustomDrawer(),
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Sign Language Translator'),
-        backgroundColor: Colors.white,
-        foregroundColor: Theme.of(context).primaryColor,
-        elevation: 3.0,
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
-          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-          statusBarBrightness: Brightness.dark, // For iOS (dark icons)
-        ),
-      ),
+      drawer: const CustomDrawer(),
+      appBar: const CustomAppBar(title: 'Sign Language Translator'),
       backgroundColor: const Color(0xFFF4F4F4),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,8 +75,7 @@ class HomeScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
               elevation: 3.0,
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -73,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                     Text(
                       'Welcome, User!',
                       style: TextStyle(
-                        color: Colors.deepPurple,
+                        color: Color(0xFF00B0FF),
                         fontSize: 30.0,
                       ),
                     ),
@@ -104,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                       passedTitle: optionsList[index]['optionTitle'],
                       passedIcon: optionsList[index]['optionIcon'],
                       passedColor: optionsList[index]['optionColor'],
-                      passedNavigate: optionsList[index]['optionNavigate']);
+                      passedNavigateFunction: optionsList[index]['optionNavigate']);
                 }),
           ),
         ],

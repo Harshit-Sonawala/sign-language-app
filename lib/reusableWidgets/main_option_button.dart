@@ -4,14 +4,14 @@ class MainOptionButton extends StatelessWidget {
   final String passedTitle;
   final IconData passedIcon;
   final Color passedColor;
-  final String passedNavigate;
+  final Function passedNavigateFunction;
 
   const MainOptionButton(
       {Key? key,
       required this.passedTitle,
       required this.passedIcon,
       required this.passedColor,
-      required this.passedNavigate})
+      required this.passedNavigateFunction})
       : super(key: key);
 
   @override
@@ -24,7 +24,7 @@ class MainOptionButton extends StatelessWidget {
       margin: const EdgeInsets.all(10),
       color: passedColor,
       child: InkWell(
-        onTap: () => {},
+        onTap: () => passedNavigateFunction(),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Center(
