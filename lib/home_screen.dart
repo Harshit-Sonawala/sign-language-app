@@ -5,6 +5,7 @@ import 'reusableWidgets/custom_drawer.dart';
 import 'reusableWidgets/main_option_button.dart';
 
 import 'ocr_screen.dart';
+import 'ocr_screen2.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class HomeScreen extends StatelessWidget {
         'optionNavigate': () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const OcrScreen()),
+                MaterialPageRoute(builder: (context) => const OcrScreen2()),
               )
             },
       },
@@ -50,9 +51,33 @@ class HomeScreen extends StatelessWidget {
       },
       {
         'optionId': 4,
+        'optionTitle': 'Transcribe Text',
+        'optionIcon': Icons.mic_rounded,
+        'optionColor': Colors.orange,
+        'optionNavigate': () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const OcrScreen()),
+              )
+            },
+      },
+      {
+        'optionId': 5,
         'optionTitle': 'ASL Guide',
         'optionIcon': Icons.my_library_books,
-        'optionColor': Colors.orange,
+        'optionColor': Colors.indigo,
+        'optionNavigate': () => {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const OcrScreen()),
+              )
+            },
+      },
+      {
+        'optionId': 6,
+        'optionTitle': 'Other',
+        'optionIcon': Icons.handyman_rounded,
+        'optionColor': Colors.purple,
         'optionNavigate': () => {
               Navigator.push(
                 context,
@@ -81,18 +106,19 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       'Welcome, User!',
                       style: TextStyle(
-                        color: Color(0xFF00B0FF),
+                        // color: Color(0xFF00B0FF),
+                        color: Theme.of(context).primaryColor,
                         fontSize: 30.0,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10.0,
                     ),
-                    Text(
+                    const Text(
                       'Choose your action:',
                       style: TextStyle(
                         fontSize: 18.0,

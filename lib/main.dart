@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'home_screen.dart';
 import 'ocr_screen.dart';
+import 'reusableWidgets/create_material_color.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,8 +18,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Sign Language Translator',
         theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
-          accentColor: const Color(0xFF00B0FF),
+          primarySwatch: createMaterialColor(const Color(0xFF00B0FF)),
+          // accentColor: const Color(0xFF00B0FF),
           fontFamily: 'ProductSans',
         ),
         // home: const HomeScreen(),
