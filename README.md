@@ -13,6 +13,7 @@ Created as a project submission for Semester VI as a part of the B.Tech IT Cours
 
 -- ! Work in Progess ! --
 
-# Collaboration
+## Collaboration
 
 - Meet Chudasama ~meet.sc@somaiya.edu
+- Harshit Sonawala ~hssonawala@gmail.com
