@@ -17,3 +17,4 @@ Created as a project submission for Semester VI as a part of the B.Tech IT Cours
 
 - Meet Chudasama ~meet.sc@somaiya.edu
 - Harshit Sonawala ~hssonawala@gmail.com
+- Ishaan Mandliya ~ishaan.mandliya@somaiya.edu
