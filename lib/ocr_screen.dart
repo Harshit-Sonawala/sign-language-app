@@ -198,7 +198,7 @@ class _OcrScreenState extends State<OcrScreen> {
         fps: 2.0,
       );
     } on Exception {
-      texts.add(OcrText('Failed to recognize text.'));
+      texts.add(OcrText('No text recognized.'));
     }
 
     if (!mounted) return;

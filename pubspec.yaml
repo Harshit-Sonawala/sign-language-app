@@ -1,5 +1,5 @@
 name: sign_language_app
-description: A new Flutter project.
+description: An app to help translate sign language to other languages.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -36,6 +36,7 @@ dependencies:
   flutter_mobile_vision_2: ^0.1.13
   google_ml_kit: ^0.7.3
   image_picker: ^0.8.4+6
+  camera: ^0.9.4+14
 
 dev_dependencies:
   flutter_test:
