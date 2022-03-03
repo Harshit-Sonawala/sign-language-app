@@ -123,7 +123,7 @@ class _TranslateScreenState extends State<TranslateScreen> {
         appBar: const CustomAppBar(title: 'Translate Screen'),
         body: Column(
           children: [
-            Container(
+            SizedBox(
               height: size.width,
               width: size.height,
               child: cameraController == null

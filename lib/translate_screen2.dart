@@ -24,6 +24,7 @@ class _TranslateScreen2State extends State<TranslateScreen2> with TickerProvider
 
   List<Result> outputs = [];
 
+  @override
   void initState() {
     super.initState();
 

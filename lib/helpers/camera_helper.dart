@@ -9,7 +9,7 @@ class CameraHelper {
 
   static bool isDetecting = false;
   static CameraLensDirection _direction = CameraLensDirection.back;
-  static Future<void> initializeControllerFuture = Future(() => {});
+  static Future<void> initializeControllerFuture = Future(() {});
 
   static Future<CameraDescription> _getCamera(CameraLensDirection dir) async {
     return await availableCameras().then(
