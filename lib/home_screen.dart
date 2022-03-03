@@ -5,8 +5,9 @@ import 'reusableWidgets/custom_drawer.dart';
 import 'reusableWidgets/main_option_button.dart';
 
 import 'ocr_screen.dart';
-import 'ocr_screen2.dart';
-import 'translate_screen.dart';
+// import 'ocr_screen2.dart';
+// import 'translate_screen.dart';
+import 'translate_screen2.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class HomeScreen extends StatelessWidget {
         'optionNavigate': () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const TranslateScreen()),
+                MaterialPageRoute(builder: (context) => const TranslateScreen2()),
               )
             },
       },

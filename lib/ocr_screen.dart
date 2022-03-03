@@ -150,7 +150,7 @@ class _OcrScreenState extends State<OcrScreen> {
         ),
         child: ElevatedButton(
           onPressed: _read,
-          child: Text('READ!'),
+          child: const Text('Read Text', style: TextStyle(color: Colors.white)),
         ),
       ),
     );
