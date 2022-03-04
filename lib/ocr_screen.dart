@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobile_vision_2/flutter_mobile_vision_2.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 import './reusableWidgets/custom_appbar.dart';
 
@@ -20,7 +21,8 @@ class _OcrScreenState extends State<OcrScreen> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      platformVersion = await FlutterMobileVision.platformVersion ?? 'Unknown platform version';
+      platformVersion = await FlutterMobileVision.platformVersion ??
+          'Unknown platform version';
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -260,8 +262,12 @@ class _OcrScreenState extends State<OcrScreen> {
 ///
 class OcrTextWidget extends StatelessWidget {
   final OcrText ocrText;
+  final FlutterTts tts = FlutterTts();
 
-  OcrTextWidget(this.ocrText);
+  OcrTextWidget(this.ocrText) {
+    tts.setLanguage('en');
+    tts.setSpeechRate(0.5);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -275,7 +281,7 @@ class OcrTextWidget extends StatelessWidget {
       //     builder: (context) => OcrTextDetail(ocrText),
       //   ),
       // ),
-      onTap: () => {},
+      onTap: () => {tts.speak(ocrText.value)},
     );
   }
 }
