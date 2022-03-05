@@ -9,6 +9,7 @@ import 'ocr_screen.dart';
 import 'translate_screen.dart';
 import 'translate_screen2.dart';
 import 'read_out_screen.dart';
+import 'asl_guide_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -24,8 +25,7 @@ class HomeScreen extends StatelessWidget {
         'optionNavigate': () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => const TranslateScreen2()),
+                MaterialPageRoute(builder: (context) => const TranslateScreen2()),
               )
             },
       },
@@ -55,20 +55,20 @@ class HomeScreen extends StatelessWidget {
       },
       {
         'optionId': 4,
-        'optionTitle': 'Transcribe Text',
-        'optionIcon': Icons.mic_rounded,
+        'optionTitle': 'ASL Guide',
+        'optionIcon': Icons.my_library_books,
         'optionColor': Colors.orange,
         'optionNavigate': () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const OcrScreen()),
+                MaterialPageRoute(builder: (context) => const ASLGuideScreen()),
               )
             },
       },
       {
         'optionId': 5,
-        'optionTitle': 'ASL Guide',
-        'optionIcon': Icons.my_library_books,
+        'optionTitle': 'Transcribe Text',
+        'optionIcon': Icons.mic_rounded,
         'optionColor': Colors.indigo,
         'optionNavigate': () => {
               Navigator.push(
@@ -85,8 +85,7 @@ class HomeScreen extends StatelessWidget {
         'optionNavigate': () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => const TranslateScreen()),
+                MaterialPageRoute(builder: (context) => const TranslateScreen()),
               )
             },
       },
@@ -105,8 +104,7 @@ class HomeScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
               elevation: 3.0,
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -148,8 +146,7 @@ class HomeScreen extends StatelessWidget {
                       passedTitle: optionsList[index]['optionTitle'],
                       passedIcon: optionsList[index]['optionIcon'],
                       passedColor: optionsList[index]['optionColor'],
-                      passedNavigateFunction: optionsList[index]
-                          ['optionNavigate']);
+                      passedNavigateFunction: optionsList[index]['optionNavigate']);
                 }),
           ),
         ],

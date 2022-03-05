@@ -21,8 +21,7 @@ class _OcrScreenState extends State<OcrScreen> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      platformVersion = await FlutterMobileVision.platformVersion ??
-          'Unknown platform version';
+      platformVersion = await FlutterMobileVision.platformVersion ?? 'Unknown platform version';
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -40,8 +39,8 @@ class _OcrScreenState extends State<OcrScreen> {
   int? _cameraOcr = FlutterMobileVision.CAMERA_BACK;
   bool _autoFocusOcr = true;
   bool _torchOcr = false;
-  bool _multipleOcr = false;
-  bool _waitTapOcr = false;
+  bool _multipleOcr = true;
+  bool _waitTapOcr = true;
   bool _showTextOcr = true;
   Size? _previewOcr;
   List<OcrText> _textsOcr = [];
@@ -152,7 +151,10 @@ class _OcrScreenState extends State<OcrScreen> {
         ),
         child: ElevatedButton(
           onPressed: _read,
-          child: const Text('Read Text', style: TextStyle(color: Colors.white)),
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: const Text('Read Text', style: TextStyle(fontSize: 18, color: Colors.white)),
+          ),
         ),
       ),
     );
@@ -260,28 +262,42 @@ class _OcrScreenState extends State<OcrScreen> {
 ///
 /// OcrTextWidget
 ///
-class OcrTextWidget extends StatelessWidget {
+class OcrTextWidget extends StatefulWidget {
   final OcrText ocrText;
+
+  OcrTextWidget(this.ocrText, {Key? key}) : super(key: key);
+
+  @override
+  State<OcrTextWidget> createState() => _OcrTextWidgetState();
+}
+
+class _OcrTextWidgetState extends State<OcrTextWidget> {
   final FlutterTts tts = FlutterTts();
 
-  OcrTextWidget(this.ocrText) {
+  _OcrTextWidgetState() {
     tts.setLanguage('en');
     tts.setSpeechRate(0.5);
+  }
+
+  @override
+  void dispose() {
+    tts.stop();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: const Icon(Icons.title),
-      title: Text(ocrText.value),
-      subtitle: Text(ocrText.language),
+      title: Text(widget.ocrText.value),
+      subtitle: Text(widget.ocrText.language),
       trailing: const Icon(Icons.arrow_forward),
       // onTap: () => Navigator.of(context).push(
       //   MaterialPageRoute(
       //     builder: (context) => OcrTextDetail(ocrText),
       //   ),
       // ),
-      onTap: () => {tts.speak(ocrText.value)},
+      onTap: () => {tts.speak(widget.ocrText.value)},
     );
   }
 }

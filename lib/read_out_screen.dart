@@ -10,7 +10,7 @@ class ReadOutScreen extends StatefulWidget {
 }
 
 class _ReadOutScreenState extends State<ReadOutScreen> {
-  final _inputController = new TextEditingController();
+  final _inputController = TextEditingController();
   final FlutterTts tts = FlutterTts();
 
   _ReadOutScreenState() {
@@ -21,22 +21,49 @@ class _ReadOutScreenState extends State<ReadOutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(title: "Read Out Screen"),
+        appBar: const CustomAppBar(title: "Read Out Screen"),
         body: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 40),
+              const Padding(
+                padding: EdgeInsets.all(20),
+                child: Text('Please enter the text you want spoken out loud:', style: TextStyle(fontSize: 18)),
+              ),
               Padding(
-                padding: const EdgeInsets.all(40),
+                padding: const EdgeInsets.all(20),
                 child: TextField(
                   controller: _inputController,
+                  style: const TextStyle(fontSize: 18),
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Enter text to read out loud',
+                    label: Text('Convert to Speech'),
+                  ),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () => {tts.speak(_inputController.text)},
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text("Read Out Loud",
-                      style: TextStyle(fontSize: 20, color: Colors.white)),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: ElevatedButton(
+                  onPressed: () => {tts.speak(_inputController.text)},
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const <Widget>[
+                        Icon(
+                          Icons.record_voice_over,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Text("Read Out Loud", style: TextStyle(fontSize: 20, color: Colors.white)),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -47,6 +74,7 @@ class _ReadOutScreenState extends State<ReadOutScreen> {
   @override
   void dispose() {
     _inputController.dispose();
+    tts.stop();
     super.dispose();
   }
 }

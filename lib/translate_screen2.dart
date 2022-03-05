@@ -79,7 +79,7 @@ class _TranslateScreen2State extends State<TranslateScreen2> with TickerProvider
             );
           } else {
             // Otherwise, display a loading indicator.
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
         },
       ),
@@ -144,7 +144,7 @@ class _TranslateScreen2State extends State<TranslateScreen2> with TickerProvider
                             onPressed: () {
                               speak("${outputs[index].label}");
                             },
-                            child: Icon(
+                            child: const Icon(
                               Icons.play_arrow,
                               size: 60,
                               color: Color(0xff375079),
@@ -154,7 +154,7 @@ class _TranslateScreen2State extends State<TranslateScreen2> with TickerProvider
                       ],
                     );
                   })
-              : Center(
+              : const Center(
                   child: Text("Wating for model to detect..",
                       style: TextStyle(
                         color: Colors.black,
@@ -166,7 +166,7 @@ class _TranslateScreen2State extends State<TranslateScreen2> with TickerProvider
   }
 
   void _setupAnimation() {
-    _colorAnimController = AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    _colorAnimController = AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
     _colorTween = ColorTween(begin: Colors.green, end: Colors.red).animate(_colorAnimController);
   }
 }
