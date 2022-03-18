@@ -45,11 +45,11 @@ class _ReadOutScreenState extends State<ReadOutScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20),
                 child: ElevatedButton(
                   onPressed: () => {tts.speak(_inputController.text)},
                   child: Padding(
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(12),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const <Widget>[
@@ -60,7 +60,7 @@ class _ReadOutScreenState extends State<ReadOutScreen> {
                         SizedBox(
                           width: 20,
                         ),
-                        Text("Read Out Loud", style: TextStyle(fontSize: 20, color: Colors.white)),
+                        Text("Read Out Loud", style: TextStyle(fontSize: 18, color: Colors.white)),
                       ],
                     ),
                   ),

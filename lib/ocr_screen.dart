@@ -143,7 +143,8 @@ class _OcrScreenState extends State<OcrScreen> {
     ));
 
     items.add(
-      Padding(
+      Container(
+        margin: const EdgeInsets.only(top: 10),
         padding: const EdgeInsets.only(
           left: 18.0,
           right: 18.0,
@@ -151,9 +152,9 @@ class _OcrScreenState extends State<OcrScreen> {
         ),
         child: ElevatedButton(
           onPressed: _read,
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Read Text', style: TextStyle(fontSize: 18, color: Colors.white)),
+          child: const Padding(
+            padding: EdgeInsets.all(12),
+            child: Text('Read Text', style: TextStyle(fontSize: 18, color: Colors.white)),
           ),
         ),
       ),
@@ -192,7 +193,7 @@ class _OcrScreenState extends State<OcrScreen> {
         waitTap: _waitTapOcr,
         //OPTIONAL: close camera after tap, even if there are no detection.
         //Camera would usually stay on, until there is a valid detection
-        forceCloseCameraOnTap: true,
+        forceCloseCameraOnTap: false,
         //OPTIONAL: path to save image to. leave empty if you do not want to save the image
         imagePath: '',
         showText: _showTextOcr,

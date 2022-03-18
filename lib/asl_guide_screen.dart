@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sign_language_app/reusableWidgets/custom_appbar.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 import 'models/asl_element.dart';
 
@@ -11,6 +12,8 @@ class ASLGuideScreen extends StatefulWidget {
 }
 
 class _ASLGuideScreenState extends State<ASLGuideScreen> {
+  final FlutterTts tts = FlutterTts();
+
   final guideList = <ASLElement>[
     ASLElement(
         elementTitle: 'A',
@@ -144,6 +147,11 @@ class _ASLGuideScreenState extends State<ASLGuideScreen> {
         elementType: 'Letter'),
   ];
 
+  _ASLGuideScreenState() {
+    tts.setLanguage('en');
+    tts.setSpeechRate(0.5);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -158,7 +166,10 @@ class _ASLGuideScreenState extends State<ASLGuideScreen> {
               margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
               elevation: 2.0,
               child: ListTile(
-                leading: Image.asset(guideList[index].elementImagePath),
+                onTap: () => {tts.speak(guideList[index].elementTitle)},
+                leading: Image.asset(
+                  guideList[index].elementImagePath,
+                ),
                 title: Text(guideList[index].elementTitle),
                 subtitle: Text(guideList[index].elementDescription),
                 trailing: Card(
@@ -167,7 +178,7 @@ class _ASLGuideScreenState extends State<ASLGuideScreen> {
                     padding: const EdgeInsets.all(7),
                     child: Text(
                       guideList[index].elementType,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
@@ -175,5 +186,11 @@ class _ASLGuideScreenState extends State<ASLGuideScreen> {
             );
           }),
     );
+  }
+
+  @override
+  void dispose() {
+    tts.stop();
+    super.dispose();
   }
 }
