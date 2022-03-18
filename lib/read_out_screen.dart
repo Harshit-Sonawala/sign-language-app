@@ -13,6 +13,30 @@ class _ReadOutScreenState extends State<ReadOutScreen> {
   final _inputController = TextEditingController();
   final FlutterTts tts = FlutterTts();
 
+  final commonWordsList = <String>[
+    'Hi',
+    'Hello',
+    'Yes',
+    'No',
+    'Okay',
+    'Maybe',
+    'Sure',
+    'Not Sure',
+    'Please',
+    'Thank You',
+    'Thanks',
+    'Excuse Me',
+    'Sorry',
+    'Good',
+    'Bad',
+    'Fine',
+    'When',
+    'Where',
+    'What',
+    'Why',
+    'How',
+  ];
+
   _ReadOutScreenState() {
     tts.setLanguage('en');
     tts.setSpeechRate(0.5);
@@ -27,13 +51,13 @@ class _ReadOutScreenState extends State<ReadOutScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 40),
+              const SizedBox(height: 10),
               const Padding(
-                padding: EdgeInsets.all(20),
-                child: Text('Please enter the text you want spoken out loud:', style: TextStyle(fontSize: 18)),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                child: Text('Custom Sentence:', style: TextStyle(fontSize: 18)),
               ),
               Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                 child: TextField(
                   controller: _inputController,
                   style: const TextStyle(fontSize: 18),
@@ -45,7 +69,7 @@ class _ReadOutScreenState extends State<ReadOutScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                 child: ElevatedButton(
                   onPressed: () => {tts.speak(_inputController.text)},
                   child: Padding(
@@ -65,6 +89,38 @@ class _ReadOutScreenState extends State<ReadOutScreen> {
                     ),
                   ),
                 ),
+              ),
+              const SizedBox(height: 10),
+              const Divider(),
+              const SizedBox(height: 10),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                child: Text('Quick Access:', style: TextStyle(fontSize: 18)),
+              ),
+              Expanded(
+                child: GridView.builder(
+                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3, mainAxisSpacing: 20, crossAxisSpacing: 20),
+                    itemCount: commonWordsList.length,
+                    itemBuilder: (BuildContext context, int index) => ElevatedButton(
+                          style: ButtonStyle(
+                            elevation: MaterialStateProperty.all(2),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                            ),
+                            backgroundColor: MaterialStateProperty.all(Colors.white),
+                            foregroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
+                          ),
+                          onPressed: () => {tts.speak(commonWordsList[index])},
+                          child: Text(
+                            commonWordsList[index],
+                            style: const TextStyle(fontSize: 22),
+                            textAlign: TextAlign.center,
+                          ),
+                        )),
               ),
             ],
           ),

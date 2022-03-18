@@ -157,34 +157,33 @@ class _ASLGuideScreenState extends State<ASLGuideScreen> {
     return Scaffold(
       appBar: const CustomAppBar(title: 'ASL Guide'),
       body: ListView.builder(
-          itemCount: guideList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
-              elevation: 2.0,
-              child: ListTile(
-                onTap: () => {tts.speak(guideList[index].elementTitle)},
-                leading: Image.asset(
-                  guideList[index].elementImagePath,
-                ),
-                title: Text(guideList[index].elementTitle),
-                subtitle: Text(guideList[index].elementDescription),
-                trailing: Card(
-                  color: Theme.of(context).primaryColor,
-                  child: Padding(
-                    padding: const EdgeInsets.all(7),
-                    child: Text(
-                      guideList[index].elementType,
-                      style: const TextStyle(color: Colors.white),
-                    ),
-                  ),
+        itemCount: guideList.length,
+        itemBuilder: (BuildContext context, int index) => Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+          elevation: 2.0,
+          child: ListTile(
+            onTap: () => {tts.speak(guideList[index].elementTitle)},
+            leading: Image.asset(
+              guideList[index].elementImagePath,
+            ),
+            title: Text(guideList[index].elementTitle),
+            subtitle: Text(guideList[index].elementDescription),
+            trailing: Card(
+              color: Theme.of(context).primaryColor,
+              child: Padding(
+                padding: const EdgeInsets.all(7),
+                child: Text(
+                  guideList[index].elementType,
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
-            );
-          }),
+            ),
+          ),
+        ),
+      ),
     );
   }
 
