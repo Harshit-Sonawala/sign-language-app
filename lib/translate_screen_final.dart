@@ -19,7 +19,7 @@ class _TranslateScreenFinalState extends State<TranslateScreenFinal> {
 
   loadModel() async {
     await Tflite.loadModel(
-      model: 'assets/model/model_unquant.tflite',
+      model: 'assets/model/model.tflite',
       labels: 'assets/model/labels.txt',
     );
   }
@@ -44,7 +44,7 @@ class _TranslateScreenFinalState extends State<TranslateScreenFinal> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: Colors.white,
             content: SingleChildScrollView(
               child: ListBody(
                 children: <Widget>[
@@ -109,17 +109,17 @@ class _TranslateScreenFinalState extends State<TranslateScreenFinal> {
                 children: [
                   _image == null ? Container() : Image.file(File(_image!.path)),
                   const SizedBox(height: 20),
-                  _outputs != null
-                      ? Text(
-                          'Prediction: ${_outputs![0]["label"]}',
-                          style: const TextStyle(
+                  _outputs == null
+                      ? const Text(
+                          'No Predictions Made',
+                          style: TextStyle(
                             color: Colors.black,
                             fontSize: 20.0,
                           ),
                         )
-                      : const Text(
-                          'No Predictions Made',
-                          style: TextStyle(
+                      : Text(
+                          'Prediction: ${_outputs![0]["label"]}',
+                          style: const TextStyle(
                             color: Colors.black,
                             fontSize: 20.0,
                           ),
