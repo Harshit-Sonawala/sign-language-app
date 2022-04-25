@@ -6,13 +6,13 @@ class MainOptionButton extends StatelessWidget {
   final Color passedColor;
   final Function passedNavigateFunction;
 
-  const MainOptionButton(
-      {Key? key,
-      required this.passedTitle,
-      required this.passedIcon,
-      required this.passedColor,
-      required this.passedNavigateFunction})
-      : super(key: key);
+  const MainOptionButton({
+    Key? key,
+    required this.passedTitle,
+    required this.passedIcon,
+    required this.passedColor,
+    required this.passedNavigateFunction,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class MainOptionButton extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      elevation: 3.0,
+      elevation: 2.0,
       margin: const EdgeInsets.all(10),
       color: passedColor,
       child: InkWell(

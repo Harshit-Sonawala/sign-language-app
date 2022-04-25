@@ -8,6 +8,7 @@ import 'ocr_screen.dart';
 // import 'ocr_screen2.dart';
 import 'translate_screen.dart';
 import 'translate_screen2.dart';
+import 'translate_screen_final.dart';
 import 'read_out_screen.dart';
 import 'asl_guide_screen.dart';
 
@@ -25,7 +26,7 @@ class HomeScreen extends StatelessWidget {
         'optionNavigate': () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const TranslateScreen2()),
+                MaterialPageRoute(builder: (context) => TranslateScreenFinal()),
               )
             },
       },
@@ -83,10 +84,10 @@ class HomeScreen extends StatelessWidget {
         'optionIcon': Icons.handyman_rounded,
         'optionColor': Colors.purple,
         'optionNavigate': () => {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const TranslateScreen()),
-              )
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => const TranslateScreen()),
+              // )
             },
       },
     ];
@@ -105,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-              elevation: 3.0,
+              elevation: 2.0,
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(

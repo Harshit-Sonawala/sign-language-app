@@ -36,7 +36,7 @@ class _OcrScreenState extends State<OcrScreen> {
     });
   }
 
-  int? _cameraOcr = FlutterMobileVision.CAMERA_BACK;
+  int _cameraOcr = FlutterMobileVision.CAMERA_BACK;
   bool _autoFocusOcr = true;
   bool _torchOcr = false;
   bool _multipleOcr = true;
@@ -83,7 +83,7 @@ class _OcrScreenState extends State<OcrScreen> {
         items: _getCameras(),
         onChanged: (value) {
           _previewOcr = null;
-          setState(() => _cameraOcr = value);
+          setState(() => _cameraOcr = value!);
         },
         value: _cameraOcr,
       ),

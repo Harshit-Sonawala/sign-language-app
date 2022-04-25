@@ -117,7 +117,7 @@ class _ReadOutScreenState extends State<ReadOutScreen> {
                           onPressed: () => {tts.speak(commonWordsList[index])},
                           child: Text(
                             commonWordsList[index],
-                            style: const TextStyle(fontSize: 22),
+                            style: const TextStyle(fontSize: 20),
                             textAlign: TextAlign.center,
                           ),
                         )),
